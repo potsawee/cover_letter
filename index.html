@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="coverLetterApp">
 <head>
   <title>Finish Your Cover Letter!</title>
 
@@ -7,15 +7,22 @@
   <link href="css/bootstrap.min.css" type="text/css" rel='stylesheet'>
   <link href="css/style.css" type="text/css" rel='stylesheet'>
 
+  <!-- AngularJS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script src="controller.js"></script>
+
 </head>
 
 <body>
   <!-- Page content -->
-  <div class="container-fluid">
+  <div class="container-fluid" ng-controller="stringController">
     <div class="row">
       <div class="col-sm-7 col-sm-offset-1">
         <h1>Place your cover letter here.</h1>
-        <textarea rows="25" cols="100">
+        <h5>Substitute the following in your cover letter:</h5>
+        <h5>Company -> #COMPANY, Address -> #ADDRESS, Hiring Person -> #HIRING_PERSON, Postcode -> #POSTCODE</h5>
+        <textarea rows="25" cols="100" ng-model="letter"></textarea>
 
         </textarea>
       </div>
@@ -25,15 +32,37 @@
         <h3>Your Information</h3>
         <div class="input-group">
           <span class="input-group-addon">Company</span>
-          <input type="text" class="form-control" placeholder="Company Name...">
+          <input type="text" class="form-control" placeholder="Company Name..." ng-model="company">
         </div>
 
         <div class="divider"></div>
 
         <div class="input-group">
+          <span class="input-group-addon">Address</span>
+          <textarea rows="3" class="form-control" placeholder="Company Address..." ng-model="address"></textarea>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="input-group">
+          <span class="input-group-addon">Hiring Person</span>
+          <input type="text" class="form-control" placeholder="eg. Recruitment Manager" ng-model="hiring_person">
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="input-group">
+          <span class="input-group-addon">Postcode</span>
+          <input type="text" class="form-control" ng-model="postcode">
+        </div>
+
+
+<!--         <div class="divider"></div>
+
+        <div class="input-group">
           <span class="input-group-addon">Position</span>
           <input type="text" class="form-control" placeholder="Position You want to apply...">
-        </div>
+        </div> -->
 
         <h3>Your Skills</h3>
         <div class="input-group">
@@ -65,7 +94,7 @@
         <div class="divider"></div>
 
         <button class="btn btn-default" type="">Clear</button>
-        <button class="btn btn-default" type="">Done</button>
+        <button class="btn btn-default" type="" ng-click="processLetter()">Done</button>
 
       </div>
 
