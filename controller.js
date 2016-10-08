@@ -1,5 +1,3 @@
-
-
 var app = angular.module('coverLetterApp', [])
 .controller('stringController', ['$scope', function($scope) {
 
@@ -23,5 +21,3 @@ var app = angular.module('coverLetterApp', [])
 	}
 
 }]);
-
-
