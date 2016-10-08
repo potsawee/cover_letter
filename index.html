@@ -30,10 +30,16 @@
         <h5>Company -> #COMPANY, Address -> #ADDRESS, Hiring Person -> #HIRING_PERSON, Postcode -> #POSTCODE</h5> -->
         <textarea ng-model="letter" id="mainTextarea"></textarea>
 
-        <div class="divider"></div>
-
         <button type="button" class="btn btn-primary" id="copy_btn">Copy</button>
 
+        <button type="button" class="btn btn-success" id="save_btn">Save</button>
+
+
+        <h3> Saved Cover letter(s) </h3>
+        <ul id="save_list">
+            <!-- <li> Save 1 </li>
+            <li> Save 2  </li> -->
+        </ul>
         <div class="divider"></div>
       </div>
 
@@ -124,6 +130,7 @@
   <!-- JavaScript -->
   <script src="js/bootstrap.min.js"></script>
   <script src="js/main.js"></script>
+
 </body>
 
 </html>
