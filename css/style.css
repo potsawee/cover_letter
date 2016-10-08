@@ -29,3 +29,8 @@ textarea#mainTextarea:focus{
 .divider{
   margin-bottom: 15px;
 }
+
+li {
+    list-style-type: none;
+    margin-bottom: 5px;
+}
