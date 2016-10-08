@@ -1,6 +1,6 @@
 var express = require('express');
 var morgan = require('morgan');
-const PORT = 8080;
+const PORT = 80;
 
 var app = express();
 app.use(morgan('dev'));
