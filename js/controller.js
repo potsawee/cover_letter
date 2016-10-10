@@ -14,10 +14,10 @@ var app = angular.module('coverLetterApp', [])
 
 		console.log(textarea.value);
 
-		textarea.value = textarea.value.replace(/{COMPANY}/g, $scope.company)
-			.replace(/{HIRING_PERSON}/g, $scope.hiring_person)
-			.replace(/{ADDRESS}/g, $scope.address)
-			.replace(/{DATE}/g, $scope.date)
-			.replace(/{POSTCODE}/g, $scope.postcode);
+		textarea.value = textarea.value.replace(/COMPANY/g, $scope.company)
+			.replace(/HIRING_PERSON/g, $scope.hiring_person)
+			.replace(/ADDRESS/g, $scope.address)
+			.replace(/DATE/g, $scope.date)
+			.replace(/POSTCODE/g, $scope.postcode);
 	}
 }]);
