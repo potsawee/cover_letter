@@ -1,36 +1,32 @@
 
-
   $(document).ready( function() 
   {
     $('#ClickWordList li').click(function() { 
-      $("#mainTextarea").insertAtCaret($(this).text());
+      console.log($(this).text());
+      insertText($(this).text());
       return false
     });
+
+    var highlights = [{
+      color: '#FFF000',
+      words: ['ADDRESS']
+    }];
+
+    $('#mainTextarea').highlightTextarea({
+      words: highlights
+    });
+
   });
 
-  $.fn.insertAtCaret = function (myValue) {
-    myValue = '<' + myValue.toUpperCase().replace(/ /g, '_') + '>';
-    return this.each(function(){
-        //IE support
-        if (document.selection) {
-            this.focus();
-            sel = document.selection.createRange();
-            sel.text = myValue;
-            this.focus();
-        }
-        //MOZILLA / NETSCAPE support
-        else if (this.selectionStart || this.selectionStart == '0') {
-            var startPos = this.selectionStart;
-            var endPos = this.selectionEnd;
-            var scrollTop = this.scrollTop;
-            this.value = this.value.substring(0, startPos)+ myValue+ this.value.substring(endPos,this.value.length);
-            this.focus();
-            this.selectionStart = startPos + myValue.length;
-            this.selectionEnd = startPos + myValue.length;
-            this.scrollTop = scrollTop;
-        } else {
-            this.value += myValue;
-            this.focus();
-        }
-    });
-  };
+  function insertText(text)
+  {
+    text = text.toUpperCase().replace(/ /g, '_');
+    var textarea = $('#mainTextarea');
+    var selectionStart = textarea.prop("selectionStart");
+    var selectionEnd = textarea.prop("selectionEnd")
+    var str = textarea.prop("value");
+    console.log(selectionStart + " " + selectionEnd + " " + str);
+    str = str.slice(0,selectionStart) + text + str.slice(selectionEnd);
+    textarea.prop("value", str);
+    textarea.trigger( "keydown" );
+  }
