@@ -21,10 +21,16 @@
 
         <textarea ng-model="letter" id="mainTextarea"></textarea>
 
-        <div class="divider"></div>
-
         <button type="button" class="btn btn-primary" id="copy_btn">Copy</button>
 
+        <button type="button" class="btn btn-success" id="save_btn">Save</button>
+
+
+        <h3> Saved Cover letter(s) </h3>
+        <ul id="save_list">
+            <!-- <li> Save 1 </li>
+            <li> Save 2  </li> -->
+        </ul>
         <div class="divider"></div>
       </div>
 
@@ -111,6 +117,7 @@
     </div>
   </div>
 
+
     <!-- AngularJS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -119,7 +126,6 @@
 
   <script src="js/jquery-ui.min.js"></script>
   <script src="js/jquery.highlighttextarea.js"></script>
-
 
   <script src="js/main.js"></script>
   <script src="js/controller.js"></script>
